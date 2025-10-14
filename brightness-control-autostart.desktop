@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Lumixan (Tray)
+Comment=Brightness and color temperature control in system tray
+Exec=/usr/local/bin/brightness-control --tray
+Icon=brightness-control
+Terminal=false
+Categories=Settings;
+X-GNOME-Autostart-enabled=true
+Hidden=false
+NoDisplay=false
