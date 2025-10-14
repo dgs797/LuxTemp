@@ -521,9 +521,9 @@ class BrightnessApp(Gtk.Window):
             temp_slider_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
             temp_slider_box.set_halign(Gtk.Align.CENTER)
             
-            # Temperature slider (1000K = warm/red, 6500K = neutral/white)
+            # Temperature slider (1000K = extreme warm/red, 6500K = neutral/white)
             self.temp_scale = Gtk.Scale.new_with_range(
-                Gtk.Orientation.HORIZONTAL, 2000, 6500, 100
+                Gtk.Orientation.HORIZONTAL, 1000, 6500, 100
             )
             self.temp_scale.set_size_request(400, -1)  # Max width 400px
             self.temp_scale.set_hexpand(False)
@@ -540,6 +540,7 @@ class BrightnessApp(Gtk.Window):
             temp_button_box.get_style_context().add_class('button-box')
             
             temp_presets = [
+                ("🌙 Ember", 1000),
                 ("🔥 Warm", 2700),
                 ("🌅 Sunset", 4000),
                 ("☀️ Day", 5500),
@@ -555,7 +556,7 @@ class BrightnessApp(Gtk.Window):
             main_box.pack_start(temp_button_box, False, False, 0)
             
             # Temperature info
-            temp_info = Gtk.Label(label="Lower temperature = warmer/less blue light (better for night)")
+            temp_info = Gtk.Label(label="Lower temperature = warmer/less blue light (1000K = extreme, like f.lux Ember mode)")
             temp_info.get_style_context().add_class('info-label')
             main_box.pack_start(temp_info, False, False, 0)
         else:
@@ -615,8 +616,9 @@ class BrightnessApp(Gtk.Window):
             temp_menu = Gtk.MenuItem(label="Color Temperature")
             temp_submenu = Gtk.Menu()
             
-            for label, value in [("Warm (2700K)", 2700), ("Sunset (4000K)", 4000), 
-                                ("Day (5500K)", 5500), ("Cool (6500K)", 6500)]:
+            for label, value in [("Ember (1000K)", 1000), ("Warm (2700K)", 2700), 
+                                ("Sunset (4000K)", 4000), ("Day (5500K)", 5500), 
+                                ("Cool (6500K)", 6500)]:
                 item = Gtk.MenuItem(label=label)
                 item.connect('activate', lambda w, v=value: self.set_temp_from_menu(v))
                 temp_submenu.append(item)

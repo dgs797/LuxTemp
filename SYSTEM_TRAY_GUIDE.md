@@ -16,6 +16,7 @@ Lumixan supports system tray integration, allowing it to run in the notification
 2. **Brightness** submenu:
    - 25%, 50%, 75%, 100% presets
 3. **Color Temperature** submenu (if supported):
+   - Ember (1000K) - Extreme warm, like f.lux Ember mode
    - Warm (2700K)
    - Sunset (4000K)
    - Day (5500K)

@@ -24,9 +24,9 @@ A beautiful, modern brightness and color temperature control application for Lin
 - ⚡ **Real-time Updates** - Changes apply immediately as you adjust
 
 ### Color Temperature Control (f.lux-like)
-- 🌡️ **Blue Light Filter** - Reduce blue light like f.lux (2000K-6500K)
-- 🔥 **Temperature Presets** - Warm (2700K), Sunset (4000K), Day (5500K), Cool (6500K)
-- 🌙 **Night Mode Friendly** - Lower color temperature for comfortable night viewing
+- 🌡️ **Blue Light Filter** - Reduce blue light like f.lux (1000K-6500K)
+- 🔥 **Temperature Presets** - Ember (1000K), Warm (2700K), Sunset (4000K), Day (5500K), Cool (6500K)
+- 🌙 **Ember Mode** - Extreme warm mode at 1000K (like f.lux Ember) for maximum blue light reduction
 - 👁️ **Eye Comfort** - Reduces eye strain during extended use
 
 ### System Tray Integration
@@ -146,7 +146,7 @@ When running in system tray mode:
 - 📋 **Menu Options**:
   - Show/Hide Window
   - Brightness presets (25%, 50%, 75%, 100%)
-  - Temperature presets (Warm, Sunset, Day, Cool)
+  - Temperature presets (Ember 1000K, Warm, Sunset, Day, Cool)
   - Quit (resets to defaults: 100% brightness, 6500K)
 - ❌ **Close button** minimizes to tray (doesn't quit)
 - 🔄 **Toggle window** from tray menu
@@ -175,16 +175,18 @@ The app will now start in the system tray every time you log in!
 
 ### Adjusting Color Temperature (Blue Light Filter)
 
-- **Temperature Range**: 2000K (very warm) to 6500K (neutral)
+- **Temperature Range**: 1000K (extreme warm) to 6500K (neutral)
 - **Temperature Slider**: Drag to adjust color warmth
 - **Temperature Presets**:
-  - 🔥 **Warm (2700K)**: Maximum blue light reduction (best for late night)
+  - 🌙 **Ember (1000K)**: Extreme warm mode, maximum blue light reduction (like f.lux Ember)
+  - 🔥 **Warm (2700K)**: Very warm, great for late night reading
   - 🌅 **Sunset (4000K)**: Moderate warmth (good for evening)
   - ☀️ **Day (5500K)**: Slightly warm (comfortable for daytime)
   - ❄️ **Cool (6500K)**: Neutral white, no filtering (normal daylight)
 - **Real-time Updates**: Color changes apply immediately
 - **Eye Comfort**: Lower temperatures reduce blue light, reducing eye strain
 - **From Tray**: Right-click tray icon → Color Temperature → Select preset
+- **Warning**: 1000K is very orange/red - use for extreme situations only
 
 **Note**: Color temperature control requires xrandr and may not work with all backlight-only systems.
 
@@ -339,13 +341,15 @@ python3 lumixan.py --tray
 
 ## 🎯 Quick Tips
 
-1. **For Night Use**: Set brightness to 25-50% and temperature to Warm (2700K)
-2. **For Reading**: Medium brightness (50-75%) with Sunset (4000K)
-3. **For Daytime**: Higher brightness (75-100%) with Cool (6500K)
-4. **Autostart**: Enable autostart to have the app always available in system tray
-5. **Maximize Window**: Sliders stay centered and don't stretch too wide
-6. **System Tray**: Right-click the tray icon for quick access to presets
-7. **Close Button**: Minimizes to tray instead of quitting (use Quit from menu to exit)
+1. **For Extreme Night Use**: Set brightness to 25% and temperature to Ember (1000K) - very orange!
+2. **For Night Reading**: Brightness 25-50% with Warm (2700K)
+3. **For Evening**: Medium brightness (50-75%) with Sunset (4000K)
+4. **For Daytime**: Higher brightness (75-100%) with Cool (6500K)
+5. **Autostart**: Enable autostart to have the app always available in system tray
+6. **Maximize Window**: Sliders stay centered and don't stretch too wide
+7. **System Tray**: Right-click the tray icon for quick access to presets
+8. **Close Button**: Minimizes to tray instead of quitting (use Quit from menu to exit)
+9. **Ember Warning**: 1000K is extremely warm - everything looks orange/red (like candlelight)
 
 ## 🆕 What's New in Version 2.0
 
