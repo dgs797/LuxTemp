@@ -84,7 +84,7 @@ The app automatically detects your display using:
 
 ## 🚀 Quick Start
 
-1. **Launch**: Search "Lumixan" in app menu or run `brightness-control`
+1. **Launch**: Search "Lumixan" in app menu or run `lumixan`
 2. **Adjust Brightness**: Use slider or preset buttons (25%, 50%, 75%, 100%)
 3. **Adjust Temperature**: Use temperature slider or presets (Warm, Sunset, Day, Cool)
 4. **Night Mode**: Set to "Warm" (2700K) for comfortable night viewing

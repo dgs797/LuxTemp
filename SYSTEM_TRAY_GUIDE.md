@@ -20,7 +20,7 @@ Lumixan supports system tray integration, allowing it to run in the notification
    - Sunset (4000K)
    - Day (5500K)
    - Cool (6500K)
-4. **Quit** - Exit the application completely
+4. **Quit** - Exit the application and reset to defaults (100% brightness, 6500K temperature)
 
 ## Installation
 
@@ -40,20 +40,20 @@ The installer will automatically install system tray support.
 
 ### Start in System Tray
 ```bash
-brightness-control --tray
+lumixan --tray
 ```
 
 This starts the app hidden in the system tray.
 
 ### Start with Window Visible
 ```bash
-brightness-control
+lumixan
 ```
 
 This starts the app with the window visible (traditional mode).
 
 ### From Application Menu
-Search for "Brightness Control" in your application menu and click it.
+Search for "Lumixan" in your application menu and click it.
 
 ## Autostart on Login
 
@@ -75,7 +75,7 @@ cp brightness-control-autostart.desktop ~/.config/autostart/
 4. Fill in:
    - **Name**: Lumixan
    - **Description**: Brightness and color temperature control
-   - **Command**: `/usr/local/bin/brightness-control --tray`
+   - **Command**: `lumixan --tray`
 5. Click "OK"
 
 ## Behavior
@@ -84,9 +84,14 @@ cp brightness-control-autostart.desktop ~/.config/autostart/
 - **With system tray**: Clicking X minimizes to tray (app keeps running)
 - **Without system tray**: Clicking X quits the app completely
 
+### Quitting the App
+- **From tray menu**: Select "Quit" to exit completely
+- **Auto-reset on quit**: Brightness resets to 100%, temperature resets to 6500K
+- **Why reset?**: Ensures your screen returns to normal settings when you're done
+
 ### Accessing the Window
 - Click the tray icon and select "Show/Hide Window"
-- Or run `brightness-control` again (will show existing window)
+- Or run `lumixan` again (will show existing window)
 
 ### Quick Adjustments
 - Right-click the tray icon
@@ -134,16 +139,19 @@ Some desktop environments don't support AppIndicator. The app will still work no
 
 ```bash
 # Start with window visible
-brightness-control
+lumixan
 
 # Start in system tray (hidden)
-brightness-control --tray
+lumixan --tray
 
 # Start in system tray (alternative)
-brightness-control --hidden
+lumixan --hidden
 
 # Enable autostart
 cp brightness-control-autostart.desktop ~/.config/autostart/
+
+# Backward compatibility (also works)
+brightness-control
 ```
 
 ## Tips

@@ -666,7 +666,14 @@ class BrightnessApp(Gtk.Window):
             self.update_temp_display()
     
     def quit_app(self, widget=None):
-        """Quit the application"""
+        """Quit the application and reset to defaults"""
+        # Reset brightness to 100%
+        self.brightness_ctrl.set_brightness(100)
+        
+        # Reset color temperature to 6500K (neutral)
+        if self.brightness_ctrl.display and not self.brightness_ctrl.display.startswith('/sys/class/backlight'):
+            self.brightness_ctrl.set_color_temperature(6500)
+        
         Gtk.main_quit()
     
     def on_brightness_changed(self, scale):

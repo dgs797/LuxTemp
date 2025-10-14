@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Brightness Control - Uninstallation Script
+# Lumixan - Uninstallation Script
 
 set -e
 
 echo "=========================================="
-echo "  Brightness Control - Uninstallation"
+echo "  Lumixan - Uninstallation"
 echo "=========================================="
 echo ""
 
@@ -21,7 +21,8 @@ echo "Removing application files..."
 # Remove application directory
 sudo rm -rf /opt/brightness-control
 
-# Remove launcher script
+# Remove launcher scripts
+sudo rm -f /usr/local/bin/lumixan
 sudo rm -f /usr/local/bin/brightness-control
 
 # Remove desktop entry

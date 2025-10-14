@@ -106,10 +106,10 @@ sudo apt install python3-gi python3-gi-cairo gir1.2-gtk-3.0
 sudo apt install gir1.2-appindicator3-0.1
 
 # Make the script executable
-chmod +x brightness_control.py
+chmod +x lumixan.py
 
 # Run directly
-./brightness_control.py
+./lumixan.py
 ```
 
 ## 🚀 Usage
@@ -124,19 +124,19 @@ After installation, you can launch the application in multiple ways:
 Search for "Lumixan" in your application menu
 
 # From terminal
-brightness-control
+lumixan
 
 # Direct run
-python3 brightness_control.py
+python3 lumixan.py
 ```
 
 #### System Tray Mode (Start Hidden)
 ```bash
 # Start in system tray
-brightness-control --tray
+lumixan --tray
 
 # Alternative
-brightness-control --hidden
+lumixan --hidden
 ```
 
 ### System Tray Features
@@ -147,9 +147,10 @@ When running in system tray mode:
   - Show/Hide Window
   - Brightness presets (25%, 50%, 75%, 100%)
   - Temperature presets (Warm, Sunset, Day, Cool)
-  - Quit
+  - Quit (resets to defaults: 100% brightness, 6500K)
 - ❌ **Close button** minimizes to tray (doesn't quit)
 - 🔄 **Toggle window** from tray menu
+- 🔄 **Auto-reset**: Quitting the app resets brightness to 100% and temperature to 6500K
 
 ### Autostart on Login
 
@@ -243,7 +244,7 @@ For backlight control, the application may need special permissions. The install
    ```
 2. **Run from terminal** to see error messages:
    ```bash
-   python3 brightness_control.py
+   python3 lumixan.py
    ```
 
 ### Permission denied errors
@@ -282,7 +283,7 @@ This will remove all installed files and optionally remove the udev rules.
 
 ## Customization
 
-You can customize the appearance by editing the CSS in `brightness_control.py`. Look for the `apply_dark_theme()` method to modify:
+You can customize the appearance by editing the CSS in `lumixan.py`. Look for the `apply_dark_theme()` method to modify:
 - Colors and gradients
 - Font sizes
 - Spacing and padding
@@ -312,11 +313,11 @@ Additional documentation files:
 
 ```bash
 # Launch with window visible
-brightness-control
+lumixan
 
 # Launch in system tray (hidden)
-brightness-control --tray
-brightness-control --hidden
+lumixan --tray
+lumixan --hidden
 
 # Enable autostart
 mkdir -p ~/.config/autostart
@@ -326,8 +327,8 @@ cp brightness-control-autostart.desktop ~/.config/autostart/
 rm ~/.config/autostart/brightness-control-autostart.desktop
 
 # Run from source
-python3 brightness_control.py
-python3 brightness_control.py --tray
+python3 lumixan.py
+python3 lumixan.py --tray
 
 # Reinstall
 ./install.sh

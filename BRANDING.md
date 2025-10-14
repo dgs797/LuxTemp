@@ -41,7 +41,7 @@ The name reflects the app's core purpose: controlling light (brightness) and col
 ## File Structure
 
 All references to "Brightness Control" have been updated to "Lumixan" in:
-- ✅ `brightness_control.py` - Main application
+- ✅ `lumixan.py` - Main application (renamed from brightness_control.py)
 - ✅ `brightness-control.desktop` - Desktop entry
 - ✅ `brightness-control-autostart.desktop` - Autostart entry
 - ✅ `README.md` - Main documentation
@@ -60,4 +60,7 @@ Users will see "Lumixan" in:
 - Desktop notifications
 - About dialogs
 
-The command-line executable remains `brightness-control` for backward compatibility and ease of typing.
+### Command-Line
+- **Primary command**: `lumixan`
+- **Backward compatibility**: `brightness-control` (symlink)
+- **Python script**: `lumixan.py`

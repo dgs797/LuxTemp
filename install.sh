@@ -42,17 +42,20 @@ echo "Installing application..."
 sudo mkdir -p /opt/brightness-control
 
 # Copy application file
-sudo cp brightness_control.py /opt/brightness-control/
-sudo chmod +x /opt/brightness-control/brightness_control.py
+sudo cp lumixan.py /opt/brightness-control/
+sudo chmod +x /opt/brightness-control/lumixan.py
 
 # Create launcher script
-sudo tee /usr/local/bin/brightness-control > /dev/null <<'EOF'
+sudo tee /usr/local/bin/lumixan > /dev/null <<'EOF'
 #!/bin/bash
 cd /opt/brightness-control
-exec python3 brightness_control.py "$@"
+exec python3 lumixan.py "$@"
 EOF
 
-sudo chmod +x /usr/local/bin/brightness-control
+sudo chmod +x /usr/local/bin/lumixan
+
+# Create symlink for backward compatibility
+sudo ln -sf /usr/local/bin/lumixan /usr/local/bin/brightness-control
 
 # Install icon
 echo "Installing application icon..."
@@ -109,7 +112,10 @@ echo "=========================================="
 echo ""
 echo "You can now run the application by:"
 echo "  1. Searching for 'Lumixan' in your application menu"
-echo "  2. Running 'brightness-control' in terminal"
+echo "  2. Running 'lumixan' in terminal"
+echo "  3. Running 'lumixan --tray' for system tray mode"
+echo ""
+echo "Note: 'brightness-control' command also works (symlink)"
 echo ""
 echo "If backlight permissions were configured, please log out"
 echo "and log back in for the changes to take effect."
