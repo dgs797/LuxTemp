@@ -303,7 +303,17 @@ Contributions are welcome! Feel free to:
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is free software licensed under the GNU General Public License v3.0 (GPL-3.0).
+
+You are free to:
+- ✅ Use the software for any purpose
+- ✅ Study and modify the source code
+- ✅ Distribute copies of the software
+- ✅ Distribute modified versions
+
+**Important**: Any derivative works must also be licensed under GPL-3.0. This ensures the software remains free and open source. Commercial sale of proprietary versions is not permitted.
+
+See the [LICENSE](LICENSE) file for the full license text.
 
 ## 📚 Documentation
 
