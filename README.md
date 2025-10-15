@@ -7,7 +7,7 @@ A beautiful, modern brightness and color temperature control application for Lin
 ![GTK](https://img.shields.io/badge/GTK-3.0-orange)
 ![System Tray](https://img.shields.io/badge/System_Tray-Supported-brightgreen)
 
-![LuxTemp Screenshot](LuxTemp.png)
+![LuxTemp Screenshot](app-screenshot.png)
 
 ## ✨ Features
 
