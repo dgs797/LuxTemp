@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Lumixan - Uninstallation Script
+# LuxTemp - Uninstallation Script
 
 set -e
 
 echo "=========================================="
-echo "  Lumixan - Uninstallation"
-echo "=========================================="
+echo "  LuxTemp - Uninstallation"
+echo "========================================="
 echo ""
 
 # Check if running as root
@@ -22,6 +22,7 @@ echo "Removing application files..."
 sudo rm -rf /opt/brightness-control
 
 # Remove launcher scripts
+sudo rm -f /usr/local/bin/luxtemp
 sudo rm -f /usr/local/bin/lumixan
 sudo rm -f /usr/local/bin/brightness-control
 

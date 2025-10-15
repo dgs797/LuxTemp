@@ -1,7 +1,7 @@
-# Lumixan - System Tray Integration Guide
+# LuxTemp - System Tray Integration Guide
 
 ## Overview
-Lumixan supports system tray integration, allowing it to run in the notification area (lower right corner) of your Linux desktop.
+LuxTemp supports system tray integration, allowing it to run in the notification area (lower right corner) of your Linux desktop.
 
 ## Features
 
@@ -41,20 +41,20 @@ The installer will automatically install system tray support.
 
 ### Start in System Tray
 ```bash
-lumixan --tray
+luxtemp --tray
 ```
 
 This starts the app hidden in the system tray.
 
 ### Start with Window Visible
 ```bash
-lumixan
+luxtemp
 ```
 
 This starts the app with the window visible (traditional mode).
 
 ### From Application Menu
-Search for "Lumixan" in your application menu and click it.
+Search for "LuxTemp" in your application menu and click it.
 
 ## Autostart on Login
 
@@ -74,9 +74,9 @@ cp brightness-control-autostart.desktop ~/.config/autostart/
 2. Go to "Application Autostart" tab
 3. Click "Add" button
 4. Fill in:
-   - **Name**: Lumixan
+   - **Name**: LuxTemp
    - **Description**: Brightness and color temperature control
-   - **Command**: `lumixan --tray`
+   - **Command**: `luxtemp --tray`
 5. Click "OK"
 
 ## Behavior
@@ -92,7 +92,7 @@ cp brightness-control-autostart.desktop ~/.config/autostart/
 
 ### Accessing the Window
 - Click the tray icon and select "Show/Hide Window"
-- Or run `lumixan` again (will show existing window)
+- Or run `luxtemp` again (will show existing window)
 
 ### Quick Adjustments
 - Right-click the tray icon
@@ -140,13 +140,13 @@ Some desktop environments don't support AppIndicator. The app will still work no
 
 ```bash
 # Start with window visible
-lumixan
+luxtemp
 
 # Start in system tray (hidden)
-lumixan --tray
+luxtemp --tray
 
 # Start in system tray (alternative)
-lumixan --hidden
+luxtemp --hidden
 
 # Enable autostart
 cp brightness-control-autostart.desktop ~/.config/autostart/

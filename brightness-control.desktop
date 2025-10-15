@@ -1,11 +1,11 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Lumixan
+Name=LuxTemp
 Comment=Modern brightness and color temperature control
-Exec=lumixan
+Exec=luxtemp
 Icon=brightness-control
 Terminal=false
 Categories=Settings;HardwareSettings;GTK;
-Keywords=lumixan;brightness;display;backlight;screen;temperature;flux;bluelight;colortemp;
+Keywords=luxtemp;brightness;display;backlight;screen;temperature;flux;bluelight;colortemp;
 StartupNotify=true

@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=Lumixan (Tray)
+Name=LuxTemp (Tray)
 Comment=Brightness and color temperature control in system tray
-Exec=lumixan --tray
+Exec=luxtemp --tray
 Icon=brightness-control
 Terminal=false
 Categories=Settings;

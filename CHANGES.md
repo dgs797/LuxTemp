@@ -1,4 +1,4 @@
-# Lumixan - Recent Changes
+# LuxTemp - Recent Changes
 
 ## Version 2.0 - Color Temperature & UI Improvements
 

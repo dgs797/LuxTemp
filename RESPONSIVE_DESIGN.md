@@ -1,7 +1,7 @@
-# Lumixan - Responsive Design
+# LuxTemp - Responsive Design
 
 ## Overview
-Lumixan is optimized to work on all screen resolutions, including small screens like 1366x768.
+LuxTemp is optimized to work on all screen resolutions, including small screens like 1366x768.
 
 ## Changes Made
 

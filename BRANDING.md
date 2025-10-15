@@ -1,17 +1,17 @@
-# Lumixan - Branding & Name
+# LuxTemp - Branding & Name
 
 ## About the Name
 
-**Lumixan** is a combination of:
-- **Lumi** - Latin for "light" or "brightness"
-- **xan** - Modern tech suffix, suggesting innovation and user experience
+**LuxTemp** is a combination of:
+- **Lux** - Unit of illuminance (light measurement)
+- **Temp** - Temperature (color temperature)
 
-The name reflects the app's core purpose: controlling light (brightness) and color temperature with a modern, user-friendly interface.
+The name reflects the app's core purpose: controlling light (brightness/lux) and color temperature with a modern, user-friendly interface.
 
 ## Brand Identity
 
 ### Name
-- **Full Name**: Lumixan
+- **Full Name**: LuxTemp
 - **Tagline**: Brightness & Color Temperature Control
 - **Description**: A modern brightness and color temperature control tool for Linux
 
@@ -22,13 +22,13 @@ The name reflects the app's core purpose: controlling light (brightness) and col
 - **Background**: Deep blue gradient (#1a1a2e to #16213e)
 
 ### Application Names
-- **Window Title**: Lumixan
-- **Desktop Entry**: Lumixan
-- **System Tray**: Lumixan
-- **Command**: `brightness-control` (kept for compatibility)
+- **Window Title**: LuxTemp
+- **Desktop Entry**: LuxTemp
+- **System Tray**: LuxTemp
+- **Command**: `luxtemp` (primary), `brightness-control` (kept for compatibility)
 
 ### Keywords
-- lumixan
+- luxtemp
 - brightness
 - display
 - backlight
@@ -40,8 +40,8 @@ The name reflects the app's core purpose: controlling light (brightness) and col
 
 ## File Structure
 
-All references to "Brightness Control" have been updated to "Lumixan" in:
-- ✅ `lumixan.py` - Main application (renamed from brightness_control.py)
+All references to "Brightness Control" have been updated to "LuxTemp" in:
+- ✅ `luxtemp.py` - Main application (renamed from brightness_control.py)
 - ✅ `brightness-control.desktop` - Desktop entry
 - ✅ `brightness-control-autostart.desktop` - Autostart entry
 - ✅ `README.md` - Main documentation
@@ -53,7 +53,7 @@ All references to "Brightness Control" have been updated to "Lumixan" in:
 
 ## Usage
 
-Users will see "Lumixan" in:
+Users will see "LuxTemp" in:
 - Application menu
 - Window title bar
 - System tray tooltip
@@ -61,6 +61,6 @@ Users will see "Lumixan" in:
 - About dialogs
 
 ### Command-Line
-- **Primary command**: `lumixan`
+- **Primary command**: `luxtemp`
 - **Backward compatibility**: `brightness-control` (symlink)
-- **Python script**: `lumixan.py`
+- **Python script**: `luxtemp.py`

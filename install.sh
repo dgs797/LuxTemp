@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Brightness Control - Installation Script
-# This script installs the brightness control application
+# LuxTemp - Installation Script
+# This script installs the LuxTemp brightness and color temperature control application
 
 set -e
 
 echo "=========================================="
-echo "  Brightness Control - Installation"
-echo "=========================================="
+echo "  LuxTemp - Installation"
+echo "========================================="
 echo ""
 
 # Check if running as root
@@ -42,20 +42,21 @@ echo "Installing application..."
 sudo mkdir -p /opt/brightness-control
 
 # Copy application file
-sudo cp lumixan.py /opt/brightness-control/
-sudo chmod +x /opt/brightness-control/lumixan.py
+sudo cp luxtemp.py /opt/brightness-control/
+sudo chmod +x /opt/brightness-control/luxtemp.py
 
 # Create launcher script
-sudo tee /usr/local/bin/lumixan > /dev/null <<'EOF'
+sudo tee /usr/local/bin/luxtemp > /dev/null <<'EOF'
 #!/bin/bash
 cd /opt/brightness-control
-exec python3 lumixan.py "$@"
+exec python3 luxtemp.py "$@"
 EOF
 
-sudo chmod +x /usr/local/bin/lumixan
+sudo chmod +x /usr/local/bin/luxtemp
 
-# Create symlink for backward compatibility
-sudo ln -sf /usr/local/bin/lumixan /usr/local/bin/brightness-control
+# Create symlinks for backward compatibility
+sudo ln -sf /usr/local/bin/luxtemp /usr/local/bin/lumixan
+sudo ln -sf /usr/local/bin/luxtemp /usr/local/bin/brightness-control
 
 # Install icon
 echo "Installing application icon..."
@@ -107,15 +108,15 @@ fi
 
 echo ""
 echo "=========================================="
-echo "  Lumixan Installation Complete!"
+echo "  LuxTemp Installation Complete!"
 echo "=========================================="
 echo ""
 echo "You can now run the application by:"
-echo "  1. Searching for 'Lumixan' in your application menu"
-echo "  2. Running 'lumixan' in terminal"
-echo "  3. Running 'lumixan --tray' for system tray mode"
+echo "  1. Searching for 'LuxTemp' in your application menu"
+echo "  2. Running 'luxtemp' in terminal"
+echo "  3. Running 'luxtemp --tray' for system tray mode"
 echo ""
-echo "Note: 'brightness-control' command also works (symlink)"
+echo "Note: 'lumixan' and 'brightness-control' commands also work (symlinks)"
 echo ""
 echo "If backlight permissions were configured, please log out"
 echo "and log back in for the changes to take effect."

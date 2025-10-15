@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Lumixan - A modern brightness and color temperature control tool for Linux
+LuxTemp - A modern brightness and color temperature control tool for Linux
 """
 
 import gi
@@ -183,7 +183,7 @@ class BrightnessApp(Gtk.Window):
     """Main application window"""
     
     def __init__(self, start_hidden=False):
-        super().__init__(title="Lumixan")
+        super().__init__(title="LuxTemp")
         
         self.brightness_ctrl = BrightnessControl()
         self.update_timeout = None
@@ -393,15 +393,15 @@ class BrightnessApp(Gtk.Window):
         main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         main_box.get_style_context().add_class('main-container')
         
-        # Icon - Load from SVG file
+        # Logo - Load from SVG file
         try:
             script_dir = os.path.dirname(os.path.abspath(__file__))
-            icon_path = os.path.join(script_dir, 'brightness-control.svg')
-            if os.path.exists(icon_path):
-                pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(icon_path, 48, 48)
-                icon_image = Gtk.Image.new_from_pixbuf(pixbuf)
-                icon_image.get_style_context().add_class('icon-image')
-                main_box.pack_start(icon_image, False, False, 0)
+            logo_path = os.path.join(script_dir, 'brightness-control.svg')
+            if os.path.exists(logo_path):
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(logo_path, 64, 64)
+                logo_image = Gtk.Image.new_from_pixbuf(pixbuf)
+                logo_image.get_style_context().add_class('icon-image')
+                main_box.pack_start(logo_image, False, False, 0)
             else:
                 # Fallback to emoji
                 icon_label = Gtk.Label(label="☀")
@@ -414,7 +414,7 @@ class BrightnessApp(Gtk.Window):
             main_box.pack_start(icon_label, False, False, 0)
         
         # Title
-        title = Gtk.Label(label="Lumixan")
+        title = Gtk.Label(label="Brightness")
         title.get_style_context().add_class('title-label')
         main_box.pack_start(title, False, False, 0)
         
@@ -586,7 +586,7 @@ class BrightnessApp(Gtk.Window):
             AppIndicator3.IndicatorCategory.APPLICATION_STATUS
         )
         self.indicator.set_status(AppIndicator3.IndicatorStatus.ACTIVE)
-        self.indicator.set_title("Lumixan")
+        self.indicator.set_title("LuxTemp")
         
         # Create menu
         menu = Gtk.Menu()

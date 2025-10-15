@@ -1,8 +1,8 @@
-# Lumixan - Feature Guide
+# LuxTemp - Feature Guide
 
 ## 🎨 Interface Overview
 
-Lumixan has a modern dark theme with two main sections:
+LuxTemp has a modern dark theme with two main sections:
 
 ### 1. Brightness Control Section (Cyan Accent)
 ```
@@ -31,15 +31,16 @@ Display: [Your Display Name]
     
         6500K        ← Temperature display
     
-    ━━━━━━━━━━━━━●   ← Temperature slider (2000K to 6500K)
+    ━━━━━━━━━━━━━●   ← Temperature slider (1000K to 6500K)
     
-    [🔥 Warm] [🌅 Sunset] [☀️ Day] [❄️ Cool]  ← Temperature presets
+    [🌙 Ember] [🔥 Warm] [🌅 Sunset] [☀️ Day] [❄️ Cool]  ← Temperature presets
     
     Lower temperature = warmer/less blue light (better for night)
 ```
 
 **Temperature Guide:**
-- **2700K (Warm)** 🔥 - Very warm, maximum blue light reduction (late night)
+- **1000K (Ember)** 🌙 - Extreme warm mode, like f.lux Ember (maximum blue light reduction for late night)
+- **2700K (Warm)** 🔥 - Very warm, strong blue light reduction (late night)
 - **4000K (Sunset)** 🌅 - Moderate warmth (evening)
 - **5500K (Day)** ☀️ - Slightly warm (comfortable daytime)
 - **6500K (Cool)** ❄️ - Neutral white, no filtering (normal daylight)
@@ -53,7 +54,8 @@ Display: [Your Display Name]
 - **Presets**: One-click buttons for common levels
 
 ### Color Temperature Control
-- **Range**: 2000K (very warm) to 6500K (neutral)
+- **Range**: 1000K (extreme warm) to 6500K (neutral)
+- **Ember Mode**: 1000K extreme warm mode like f.lux Ember for maximum blue light reduction
 - **Blue Light Filter**: Lower temperatures reduce blue light
 - **Eye Comfort**: Reduces eye strain during night use
 - **Like f.lux**: Similar to popular blue light reduction apps
@@ -84,7 +86,7 @@ The app automatically detects your display using:
 
 ## 🚀 Quick Start
 
-1. **Launch**: Search "Lumixan" in app menu or run `lumixan`
+1. **Launch**: Search "LuxTemp" in app menu or run `luxtemp`
 2. **Adjust Brightness**: Use slider or preset buttons (25%, 50%, 75%, 100%)
 3. **Adjust Temperature**: Use temperature slider or presets (Warm, Sunset, Day, Cool)
 4. **Night Mode**: Set to "Warm" (2700K) for comfortable night viewing

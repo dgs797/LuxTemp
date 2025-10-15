@@ -1,4 +1,4 @@
-# Lumixan - Brightness & Color Temperature Control
+# LuxTemp - Brightness & Color Temperature Control
 
 A beautiful, modern brightness and color temperature control application for Linux with a stunning dark theme interface. Features f.lux-like blue light reduction, system tray integration, and responsive design for all screen sizes.
 
@@ -6,6 +6,8 @@ A beautiful, modern brightness and color temperature control application for Lin
 ![Python](https://img.shields.io/badge/Python-3.6+-green)
 ![GTK](https://img.shields.io/badge/GTK-3.0-orange)
 ![System Tray](https://img.shields.io/badge/System_Tray-Supported-brightgreen)
+
+![LuxTemp Screenshot](LuxTemp.png)
 
 ## ✨ Features
 
@@ -106,10 +108,10 @@ sudo apt install python3-gi python3-gi-cairo gir1.2-gtk-3.0
 sudo apt install gir1.2-appindicator3-0.1
 
 # Make the script executable
-chmod +x lumixan.py
+chmod +x luxtemp.py
 
 # Run directly
-./lumixan.py
+./luxtemp.py
 ```
 
 ## 🚀 Usage
@@ -121,22 +123,22 @@ After installation, you can launch the application in multiple ways:
 #### Normal Mode (Window Visible)
 ```bash
 # From application menu
-Search for "Lumixan" in your application menu
+Search for "LuxTemp" in your application menu
 
 # From terminal
-lumixan
+luxtemp
 
 # Direct run
-python3 lumixan.py
+python3 luxtemp.py
 ```
 
 #### System Tray Mode (Start Hidden)
 ```bash
 # Start in system tray
-lumixan --tray
+luxtemp --tray
 
 # Alternative
-lumixan --hidden
+luxtemp --hidden
 ```
 
 ### System Tray Features
@@ -246,7 +248,7 @@ For backlight control, the application may need special permissions. The install
    ```
 2. **Run from terminal** to see error messages:
    ```bash
-   python3 lumixan.py
+   python3 luxtemp.py
    ```
 
 ### Permission denied errors
@@ -285,7 +287,7 @@ This will remove all installed files and optionally remove the udev rules.
 
 ## Customization
 
-You can customize the appearance by editing the CSS in `lumixan.py`. Look for the `apply_dark_theme()` method to modify:
+You can customize the appearance by editing the CSS in `luxtemp.py`. Look for the `apply_dark_theme()` method to modify:
 - Colors and gradients
 - Font sizes
 - Spacing and padding
@@ -315,11 +317,11 @@ Additional documentation files:
 
 ```bash
 # Launch with window visible
-lumixan
+luxtemp
 
 # Launch in system tray (hidden)
-lumixan --tray
-lumixan --hidden
+luxtemp --tray
+luxtemp --hidden
 
 # Enable autostart
 mkdir -p ~/.config/autostart
@@ -329,8 +331,8 @@ cp brightness-control-autostart.desktop ~/.config/autostart/
 rm ~/.config/autostart/brightness-control-autostart.desktop
 
 # Run from source
-python3 lumixan.py
-python3 lumixan.py --tray
+python3 luxtemp.py
+python3 luxtemp.py --tray
 
 # Reinstall
 ./install.sh
