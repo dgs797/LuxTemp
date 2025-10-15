@@ -41,8 +41,9 @@ sudo apt install -y gir1.2-appindicator3-0.1 2>/dev/null || echo "Note: System t
 echo "Installing application..."
 sudo mkdir -p /opt/brightness-control
 
-# Copy application file
+# Copy application files
 sudo cp luxtemp.py /opt/brightness-control/
+sudo cp brightness-control.svg /opt/brightness-control/
 sudo chmod +x /opt/brightness-control/luxtemp.py
 
 # Create launcher script

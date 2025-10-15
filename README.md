@@ -1,6 +1,6 @@
 # LuxTemp - Brightness & Color Temperature Control
 
-A beautiful, modern brightness and color temperature control application for Linux with a stunning dark theme interface. Features f.lux-like blue light reduction, system tray integration, and responsive design for all screen sizes.
+A beautiful, modern brightness and color temperature control application for Linux (including Linux Mint) with a stunning dark theme interface. Features f.lux-like blue light reduction, system tray integration, and responsive design for all screen sizes.
 
 ![Brightness Control](https://img.shields.io/badge/Platform-Linux-blue)
 ![Python](https://img.shields.io/badge/Python-3.6+-green)
@@ -55,7 +55,7 @@ The application features:
 ## 📋 Requirements
 
 ### Required
-- Linux (any distribution)
+- Linux (any distribution - tested on Linux Mint)
 - Python 3.6 or higher
 - GTK 3.0
 - PyGObject (python3-gi)
@@ -378,10 +378,17 @@ python3 luxtemp.py --tray
 
 ## Credits
 
-Created for Linux users who want a beautiful, modern brightness and color temperature control tool with system tray integration.
+Created for Linux users (especially Linux Mint users) who want a beautiful, modern brightness and color temperature control tool with system tray integration.
 
 ---
 
 **Enjoy your new brightness control app! ☀️🌡️**
 
 *Star this repo if you find it useful!*
+
+
+## Copyright
+
+Copyright (C) 2025 dgs797
+
+LuxTemp is free software licensed under GPL-3.0.
