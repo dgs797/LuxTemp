@@ -40,6 +40,7 @@ class BrightnessControl:
         self.max_brightness = 100
         self.current_brightness = 100
         self.current_temperature = 6500  # Neutral white
+        self.current_red_level = 0
         self.detect_display()
     
     def detect_display(self):
@@ -193,6 +194,36 @@ class BrightnessControl:
         except (subprocess.CalledProcessError, FileNotFoundError):
             return False
 
+    def set_red_intensity(self, level):
+        """Set red intensity (0-100) by adjusting xrandr gamma.
+        0 = normal (no extra red), 100 = maximum red.
+        """
+        if not self.display or self.display.startswith('/sys/class/backlight'):
+            return False
+
+        level = max(0, min(100, int(level)))
+
+        # Map 0-100 to green/blue gamma from 1.0 down to 0.01
+        factor = level / 100.0
+        gb = 1.0 - factor * 0.99
+        red = 1.0
+        green = gb
+        blue = gb
+
+        try:
+            subprocess.run([
+                'xrandr', '--output', self.display,
+                '--gamma', f'{red}:{green}:{blue}'
+            ], check=True, capture_output=True)
+            self.current_red_level = level
+            return True
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            return False
+
+    def set_red_mode(self):
+        """Enable a strong red screen mode using maximum red intensity."""
+        return self.set_red_intensity(100)
+
 
 class BrightnessApp(Gtk.Window):
     """Main application window"""
@@ -205,13 +236,13 @@ class BrightnessApp(Gtk.Window):
         self.temp_update_timeout = None
         self.indicator = None
         
-        # Window properties - compact size for small screens
-        self.set_default_size(420, 500)
+        # Window properties - more compact size for small screens
+        self.set_default_size(360, 420)
         self.set_position(Gtk.WindowPosition.CENTER)
         self.set_resizable(True)
         
         # Set minimum size to ensure usability
-        self.set_size_request(380, 420)
+        self.set_size_request(320, 360)
         
         # Set window icon
         try:
@@ -263,10 +294,10 @@ class BrightnessApp(Gtk.Window):
         
         .main-container {
             background: rgba(26, 26, 46, 0.95);
-            border-radius: 16px;
-            padding: 20px;
-            margin: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 4px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
         }
         
         .title-label {
@@ -567,6 +598,11 @@ class BrightnessApp(Gtk.Window):
                 button.get_style_context().add_class('preset-button')
                 button.connect('clicked', self.on_temp_preset_clicked, value)
                 temp_button_box.pack_start(button, True, True, 0)
+
+            red_button = Gtk.Button(label="🔴 Red")
+            red_button.get_style_context().add_class('preset-button')
+            red_button.connect('clicked', self.on_red_mode_clicked)
+            temp_button_box.pack_start(red_button, True, True, 0)
             
             main_box.pack_start(temp_button_box, False, False, 0)
             
@@ -574,16 +610,50 @@ class BrightnessApp(Gtk.Window):
             temp_info = Gtk.Label(label="Lower temperature = warmer/less blue light (1000K = extreme, like f.lux Ember mode)")
             temp_info.get_style_context().add_class('info-label')
             main_box.pack_start(temp_info, False, False, 0)
+
+            # Red intensity controls
+            red_title = Gtk.Label(label="Red intensity")
+            red_title.get_style_context().add_class('section-title')
+            main_box.pack_start(red_title, False, False, 0)
+
+            red_value_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4)
+            red_value_box.set_halign(Gtk.Align.CENTER)
+
+            self.red_label = Gtk.Label(label="0")
+            self.red_label.get_style_context().add_class('temp-value')
+            red_value_box.pack_start(self.red_label, False, False, 0)
+
+            red_unit = Gtk.Label(label="%")
+            red_unit.get_style_context().add_class('temp-label')
+            red_value_box.pack_start(red_unit, False, False, 0)
+
+            main_box.pack_start(red_value_box, False, False, 0)
+
+            red_slider_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+            red_slider_box.set_halign(Gtk.Align.CENTER)
+
+            self.red_scale = Gtk.Scale.new_with_range(
+                Gtk.Orientation.HORIZONTAL, 0, 100, 1
+            )
+            self.red_scale.set_size_request(400, -1)
+            self.red_scale.set_hexpand(False)
+            self.red_scale.set_value(0)
+            self.red_scale.set_draw_value(False)
+            self.red_scale.connect('value-changed', self.on_red_intensity_changed)
+
+            red_slider_box.pack_start(self.red_scale, False, False, 0)
+            main_box.pack_start(red_slider_box, False, False, 0)
         else:
             # Not supported message
             not_supported = Gtk.Label(label="Color temperature control requires xrandr")
             not_supported.get_style_context().add_class('info-label')
             main_box.pack_start(not_supported, False, False, 0)
         
-        # Add to window directly (no scrolling)
-        overlay = Gtk.Overlay()
-        overlay.add(main_box)
-        self.add(overlay)
+        # Add to window with vertical scrolling for small screens
+        scrolled = Gtk.ScrolledWindow()
+        scrolled.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+        scrolled.add(main_box)
+        self.add(scrolled)
     
     def setup_indicator(self):
         """Setup system tray indicator"""
@@ -747,6 +817,23 @@ class BrightnessApp(Gtk.Window):
         """Handle temperature preset button clicks"""
         if self.temp_supported:
             self.temp_scale.set_value(value)
+
+    def on_red_mode_clicked(self, button):
+        """Handle Red mode button click"""
+        if not self.temp_supported:
+            return
+        self.brightness_ctrl.set_red_mode()
+        if hasattr(self, 'red_scale'):
+            self.red_scale.set_value(100)
+
+    def on_red_intensity_changed(self, scale):
+        """Handle changes to the red intensity slider"""
+        if not self.temp_supported:
+            return
+        value = int(scale.get_value())
+        self.brightness_ctrl.set_red_intensity(value)
+        if hasattr(self, 'red_label'):
+            self.red_label.set_text(str(value))
     
     def update_temp_display(self):
         """Update the temperature value display"""
